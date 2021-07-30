@@ -4,9 +4,11 @@ jobs:
   build:
     docker:
       - image: circleci/node:15.12-browsers
+      - image: circleci/ruby:2.5
     working_directory: ~/search-gov-website
     steps:
       - checkout
+      - run: bundle exec jekyll build
       - run: npm install
       - run: npm run build
       - run: sudo npm install -g @lhci/cli@0.8.x
