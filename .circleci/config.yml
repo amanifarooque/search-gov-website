@@ -8,8 +8,8 @@ jobs:
     working_directory: ~/search-gov-website
     steps:
       - checkout
+      - run: gem install bundler
       - run: bundle exec jekyll build
       - run: npm install
-      - run: npm run build
       - run: sudo npm install -g @lhci/cli@0.8.x
       - run: lhci autorun
