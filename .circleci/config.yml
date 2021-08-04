@@ -32,3 +32,5 @@ jobs:
             - node_modules
           key: v1-dependencies-npm-{ { checksum "package-lock.json" }}
       - run: bundle exec jekyll build
+      - run: sudo npm install -g @lhci/cli@0.8.x
+      - run: lhci autorun
