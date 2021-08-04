@@ -4,6 +4,7 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.7-node
+      - image: circleci/node:15.12-browsers
     steps:
       - checkout
       - restore_cache:
@@ -34,3 +35,5 @@ jobs:
       - run: bundle exec jekyll build
       - run: sudo npm install -g @lhci/cli@0.8.x
       - run: lhci autorun
+        env:
+            LHCI_GITHUB_APP_TOKEN: Lqao2rRcOFy2RM:18685990:Ma81aUH8N3
